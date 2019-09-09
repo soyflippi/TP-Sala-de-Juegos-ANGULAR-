@@ -1,6 +1,7 @@
 {
-  "name": "sala-de-juegos",
-  "version": "0.0.0",
+  "name": "sala-de-juegos-flippi",
+  "author": "flippi",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
