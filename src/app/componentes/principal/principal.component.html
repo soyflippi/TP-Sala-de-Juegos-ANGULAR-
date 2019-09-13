@@ -87,32 +87,33 @@
 <section>
   <div class="album py-5 bg-light">
     <div class="container">
+      <nav class="navbar navbar-black bg-light">
+        <h4 class="navbar-text">Menu Principal</h4>
+      </nav>
       <div class="row">
         <!-- Card Juegos-->
         <div class="col-md-3">
           <div class="card mb-4 box-shadow">
             <img
-              class="card-img-top img-logo"
+              class="card-img-top img-logo rounded"
               src="./assets/imagenes/svg/jugar.svg"
               alt="Juegos"
             />
             <div class="card-body">
               <h4 class="card-heading">Juegos</h4>
               <p class="card-text">
-                El método lúdico es un conjunto de estrategias diseñadas para
-                crear un ambiente de armonía en los estudiantes que están
-                inmersos en el proceso de aprendizaje. Este método busca que los
-                alumnos se apropien de los temas impartidos por los docentes
-                utilizando el juego.
+                Entrá y divertite.
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
+                  <a routerLink="/Juegos">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      Ingresar
+                    </button></a
                   >
-                    Ingresar
-                  </button>
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>
@@ -132,20 +133,18 @@
             <div class="card-body">
               <h4 class="card-heading">Resultados</h4>
               <p class="card-text">
-                El método lúdico es un conjunto de estrategias diseñadas para
-                crear un ambiente de armonía en los estudiantes que están
-                inmersos en el proceso de aprendizaje. Este método busca que los
-                alumnos se apropien de los temas impartidos por los docentes
-                utilizando el juego.
+                Tus resultados.
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
+                  <a routerLink="/Listado">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      Ingresar
+                    </button></a
                   >
-                    Ingresar
-                  </button>
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>
@@ -165,20 +164,18 @@
             <div class="card-body">
               <h4 class="card-heading">Configuraci&oacute;n</h4>
               <p class="card-text">
-                El método lúdico es un conjunto de estrategias diseñadas para
-                crear un ambiente de armonía en los estudiantes que están
-                inmersos en el proceso de aprendizaje. Este método busca que los
-                alumnos se apropien de los temas impartidos por los docentes
-                utilizando el juego.
+                Ajustes de la aplicacion.
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
+                  <a routerLink="/">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      Ingresar
+                    </button></a
                   >
-                    Ingresar
-                  </button>
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>
@@ -189,36 +186,34 @@
 
         <!-- Card Jugadores-->
         <div class="col-md-3">
-            <div class="card mb-4 box-shadow">
-              <img
-                class="card-img-top img-logo"
-                src="./assets/imagenes/svg/jugadores.svg"
-                alt="Juegos"
-              />
-              <div class="card-body">
-                <h4 class="card-heading">Jugadores</h4>
-                <p class="card-text">
-                  El método lúdico es un conjunto de estrategias diseñadas para
-                  crear un ambiente de armonía en los estudiantes que están
-                  inmersos en el proceso de aprendizaje. Este método busca que los
-                  alumnos se apropien de los temas impartidos por los docentes
-                  utilizando el juego.
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
+          <div class="card mb-4 box-shadow">
+            <img
+              class="card-img-top img-logo"
+              src="./assets/imagenes/svg/jugadores.svg"
+              alt="Juegos"
+            />
+            <div class="card-body">
+              <h4 class="card-heading">Jugadores</h4>
+              <p class="card-text">
+                Listado de jugadores
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a routerLink="/Jugadores">
                     <button
                       type="button"
                       class="btn btn-sm btn-outline-secondary"
                     >
                       Ingresar
-                    </button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
+                    </button></a
+                  >
                 </div>
+                <small class="text-muted">9 mins</small>
               </div>
             </div>
           </div>
-          <!-- Fin de Jugadores-->
+        </div>
+        <!-- Fin de Jugadores-->
       </div>
     </div>
   </div>
