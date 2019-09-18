@@ -1,41 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<!--app-menu></app-menu-->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<app-menu></app-menu>
+
+<app-contador [segundos]="5"></app-contador>
+
 <div style="text-align:center">
   <h1>{{ nuevoJuego.nombre }}!</h1>
 </div>
 <h2></h2>
 <form name="juego">
   <label>ingrese numero: </label>
-  <input
-    [(ngModel)]="nuevoJuego.numeroIngresado"
-    placeholder="ingrese numero"
-    name="numeroIngresado"
-    type="text"
-    class="form-control"
-    style="width:50%"
-  />
+  <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control"
+    style="width:50%" />
   <h1>{{ nuevoJuego.numeroIngresado }}</h1>
 
   <h2 [hidden]="ocultarVerificar">
-    <button
-      *ngIf="nuevoJuego.numeroSecreto != 0"
-      (click)="verificar()"
-      class="btn btn-success btn-lg"
-    >
+    <button *ngIf="nuevoJuego.numeroSecreto != 0" (click)="verificar()" class="btn btn-success btn-lg">
       Verificar
     </button>
   </h2>
 
   <h2>
-    <button
-      *ngIf="nuevoJuego.numeroSecreto == 0"
-      (click)="generarnumero()"
-      class="btn btn-info btn-lg"
-    >
+    <button *ngIf="nuevoJuego.numeroSecreto == 0" (click)="generarnumero()" class="btn btn-info btn-lg">
       Nuevo número secreto
     </button>
   </h2>
