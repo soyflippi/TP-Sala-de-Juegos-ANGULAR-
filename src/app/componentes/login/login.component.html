@@ -60,40 +60,43 @@
 
 <div class="container-fluid">
   <div class="row no-gutter">
-      <!-- The image half -->
-      <div class="col-md-6 d-none d-md-flex bg-image"></div>
+    <!-- The image half -->
+    <div class="col-md-6 d-none d-md-flex bg-image"></div>
 
-      <!-- The content half -->
-      <div class="col-md-6 bg-light">
-          <div class="login d-flex align-items-center py-5">
+    <!-- The content half -->
+    <div class="col-md-6 bg-light">
+      <div class="login d-flex align-items-center py-5">
 
-              <!-- Demo content-->
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-10 col-xl-7 mx-auto">
-                          <h3 class="display-4">Inicia sesión</h3>
-                          <p class="text-muted mb-4">Para poder jugar debes inciar sesión.</p>
-                          <form>
-                              <div class="form-group mb-3">
-                                  <input id="inputEmail" type="email" placeholder="Correo electronico" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
-                              </div>
-                              <div class="form-group mb-3">
-                                  <input id="inputPassword" type="password" placeholder="Contraseña" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
-                              </div>
-                              <div class="custom-control custom-checkbox mb-3">
-                                  <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-                                  <label for="customCheck1" class="custom-control-label">Recordar contraseña</label>
-                              </div>
-                              <button type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Ingresar</button>
-                              <div class="text-center d-flex justify-content-between mt-4"><p>No tienes una cuenta? <a href="https://bootstrapious.com/snippets" class="font-italic text-muted"> 
-                                      <u>Crear</u></a></p></div>
-                          </form>
-                      </div>
-                  </div>
-              </div><!-- End -->
-
+        <!-- Demo content-->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-7 mx-auto">
+              <h3 class="display-4">Inicia sesión</h3>
+              <p class="text-muted mb-4">Para poder jugar debes inciar sesión.</p>
+              <form>
+                <div class="form-group mb-3">
+                  <input id="inputEmail" #userEmail type="email" placeholder="Correo electronico" required="" autofocus=""
+                    class="form-control rounded-pill border-0 shadow-sm px-4">
+                </div>
+                <div class="form-group mb-3">
+                  <input id="inputPassword" #userPassword type="password" placeholder="Contraseña" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                  <label for="customCheck1" class="custom-control-label">Recordar contraseña</label>
+                </div>
+                <button type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm" (click)="onLogin(userEmail.value, userPassword.value)">Ingresar</button>
+                <div class="text-center d-flex justify-content-between mt-4">
+                  <p>No tienes una cuenta? <a href="https://bootstrapious.com/snippets" class="font-italic text-muted">
+                      <u>Crear</u></a></p>
+                </div>
+              </form>
+            </div>
           </div>
-      </div><!-- End -->
+        </div><!-- End -->
+
+      </div>
+    </div><!-- End -->
 
   </div>
 </div>

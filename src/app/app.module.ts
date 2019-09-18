@@ -12,11 +12,11 @@ import { HttpModule } from '@angular/http';
 // agrego las clases para utilizar ruteo
 import { RouterModule, Routes } from '@angular/router';
 
-import { MiHttpService } from './servicios/mi-http/mi-http.service'; 
-import { PaisesService } from './servicios/paises.service'; 
+import { MiHttpService } from './servicios/mi-http/mi-http.service';
+import { PaisesService } from './servicios/paises.service';
 
-import { JugadoresService } from './servicios/jugadores.service'; 
-import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
+import { JugadoresService } from './servicios/jugadores.service';
+import { ArchivosJugadoresService } from './servicios/archivos-jugadores.service';
 import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/agilidad-aritmetica.component';
@@ -56,6 +56,20 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { BannerComponent } from './componentes/banner/banner.component';
 import { ContadorComponent } from './componentes/contador/contador.component';
 
+// Firebase
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAtx07osKfc7CxFWNSRqdlOiFWDS7lLouE",
+  authDomain: "flippi-games.firebaseapp.com",
+  databaseURL: "https://flippi-games.firebaseio.com",
+  projectId: "flippi-games",
+  storageBucket: "",
+  messagingSenderId: "893385691138",
+  appId: "1:893385691138:web:172144a49eb9b9f0d7971b"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,12 +105,11 @@ import { ContadorComponent } from './componentes/contador/contador.component';
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
-    // NgbModule.forRoot(MiRuteo),
-    // importo el ruteo
-    // RouterModule.forRoot(MiRuteo)
+    }),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [JuegoServiceService, MiHttpService, PaisesService, ArchivosJugadoresService, JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
