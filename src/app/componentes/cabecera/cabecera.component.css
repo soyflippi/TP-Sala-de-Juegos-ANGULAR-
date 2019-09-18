@@ -1,3 +1,13 @@
 .img-logo {
   width: 40px;
 }
+.navbar-toggler{
+  background-color: #aba894;
+}
+.navbar-toggler .line{
+  width: 100%;
+  float: left;
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
