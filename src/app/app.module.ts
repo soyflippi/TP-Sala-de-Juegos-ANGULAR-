@@ -61,6 +61,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Firebase
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { FlippisayComponent } from './componentes/flippisay/flippisay.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAtx07osKfc7CxFWNSRqdlOiFWDS7lLouE",
@@ -98,7 +99,8 @@ const firebaseConfig = {
     InputJugadoresComponent,
     SexoPipe,
     BannerComponent,
-    ContadorComponent
+    ContadorComponent,
+    FlippisayComponent
   ],
   imports: [
     BrowserModule,

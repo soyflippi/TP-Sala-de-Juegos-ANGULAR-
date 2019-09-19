@@ -61,10 +61,15 @@ const MiRuteo = [
     canActivate: [AuthGuardService],
     children:
       [{ path: '', component: MenuCardComponent },
+      { path: 'Flippisay', component: AdivinaElNumeroComponent },
+      { path: 'Anagrama', component: AdivinaElNumeroComponent },
+      { path: 'PiedraPapelTijera', component: AdivinaElNumeroComponent },
+      { path: 'Agilidad', component: AdivinaElNumeroComponent },
       { path: 'Adivina', component: AdivinaElNumeroComponent },
+      { path: 'Tateti', component: AdivinaElNumeroComponent },
+
       { path: 'AdivinaMasListado', component: AdivinaMasListadoComponent },
-      { path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent },
-      { path: 'Agilidad', component: AgilidadAritmeticaComponent }]
+      { path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent }]
   },
   { path: '**', component: ErrorComponent },
   { path: 'error', component: ErrorComponent }];
