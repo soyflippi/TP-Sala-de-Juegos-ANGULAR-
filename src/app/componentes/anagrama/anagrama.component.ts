@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-anagrama',
   templateUrl: './anagrama.component.html',
-  styleUrls: ['./anagrama.component.css']
+  styleUrls: ['./anagrama.component.scss']
 })
 export class AnagramaComponent implements OnInit {
 

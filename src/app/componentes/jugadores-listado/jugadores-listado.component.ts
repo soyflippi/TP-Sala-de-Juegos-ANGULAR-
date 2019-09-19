@@ -3,7 +3,7 @@ import { JugadoresService } from '../../servicios/jugadores.service';
 @Component({
   selector: 'app-jugadores-listado',
   templateUrl: './jugadores-listado.component.html',
-  styleUrls: ['./jugadores-listado.component.css']
+  styleUrls: ['./jugadores-listado.component.scss']
 })
 export class JugadoresListadoComponent implements OnInit {
 

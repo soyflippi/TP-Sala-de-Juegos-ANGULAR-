@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-mapa-de-google',
   templateUrl: './mapa-de-google.component.html',
-  styleUrls: ['./mapa-de-google.component.css']
+  styleUrls: ['./mapa-de-google.component.scss']
 })
 export class MapaDeGoogleComponent implements OnInit {
   title: string = 'El Primer mapa';

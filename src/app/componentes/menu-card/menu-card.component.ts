@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-menu-card',
   templateUrl: './menu-card.component.html',
-  styleUrls: ['./menu-card.component.css']
+  styleUrls: ['./menu-card.component.scss']
 })
 export class MenuCardComponent implements OnInit {
 

@@ -4,7 +4,7 @@ import { Juego } from '../../clases/juego';
 @Component({
   selector: 'app-adivina-mas-listado',
   templateUrl: './adivina-mas-listado.component.html',
-  styleUrls: ['./adivina-mas-listado.component.css']
+  styleUrls: ['./adivina-mas-listado.component.scss']
 })
 
 export class AdivinaMasListadoComponent implements OnInit {

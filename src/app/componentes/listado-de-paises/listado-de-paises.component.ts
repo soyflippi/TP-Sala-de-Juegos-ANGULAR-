@@ -4,7 +4,7 @@ import { PaisesService } from '../../servicios/paises.service';
 @Component({
   selector: 'app-listado-de-paises',
   templateUrl: './listado-de-paises.component.html',
-  styleUrls: ['./listado-de-paises.component.css']
+  styleUrls: ['./listado-de-paises.component.scss']
 })
 export class ListadoDePaisesComponent implements OnInit {
   public listadoDePaises: Array<any>;

@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-contador',
   templateUrl: './contador.component.html',
-  styleUrls: ['./contador.component.css']
+  styleUrls: ['./contador.component.scss']
 })
 export class ContadorComponent implements OnInit {
   @Input() segundos: number = 5;
