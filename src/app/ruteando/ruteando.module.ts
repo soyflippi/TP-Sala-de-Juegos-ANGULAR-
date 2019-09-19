@@ -27,9 +27,9 @@ import { AuthGuardService } from '../guards/auth-guard.service';
 // declaro donde quiero que se dirija
 const MiRuteo = [
   // Fuera del guard
-  { path: '', component: PrincipalComponent },
-  { path: 'Login', component: LoginComponent },
-  { path: 'Registro', component: RegistroComponent },
+  { path: '', component: PrincipalComponent, data: { animation: 'Home' } },
+  { path: 'Login', component: LoginComponent, data: { animation: 'About' } },
+  { path: 'Registro', component: RegistroComponent, data: { animation: 'Contact' } },
   // Rutas protegias, debe estar logeado
   {
     path: 'Mapa', component: MapaDeGoogleComponent,
