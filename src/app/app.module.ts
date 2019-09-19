@@ -56,6 +56,8 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { BannerComponent } from './componentes/banner/banner.component';
 import { ContadorComponent } from './componentes/contador/contador.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 // Firebase
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -101,6 +103,7 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RuteandoModule,
     HttpModule,
     AgmCoreModule.forRoot({

@@ -32,7 +32,12 @@ export class AutenticacionService {
   }
 
   async register(email: string, password: string) {
-    var result = await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    try {
+      const result = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+      return result;
+    } catch (error) {
+      throw error.message;
+    }
   }
 
   async logout() {

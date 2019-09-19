@@ -2,36 +2,70 @@
 
 <div class="container-fluid">
   <div class="row no-gutter">
-      <!-- The image half -->
-      <div class="col-md-6 d-none d-md-flex bg-image"></div>
+    <!-- The image half -->
+    <div class="col-md-6 d-none d-md-flex bg-image"></div>
 
-      <!-- The content half -->
-      <div class="col-md-6 bg-light">
-          <div class="login d-flex align-items-center py-5">
+    <!-- The content half -->
+    <div class="col-md-6 bg-light">
+      <div class="login d-flex align-items-center py-5">
 
-              <!-- Demo content-->
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-10 col-xl-7 mx-auto">
-                          <h3 class="display-4">Registrate</h3>
-                          <p class="text-muted mb-4">Para poder jugar debes tener una cuenta.</p>
-                          <form>
-                              <div class="form-group mb-3">
-                                  <input id="inputEmail" type="email" placeholder="Correo electronico" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
-                              </div>
-                              <div class="form-group mb-3">
-                                  <input id="inputPassword" type="password" placeholder="Contraseña" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
-                              </div>
-                              <button type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Registrar</button>
-                              <div class="text-center d-flex justify-content-between mt-4"><p>Tienes una cuenta? <a href="https://bootstrapious.com/snippets" class="font-italic text-muted"> 
-                                      <u>Inicia sesión</u></a></p></div>
-                          </form>
-                      </div>
+        <!-- Demo content-->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-7 mx-auto">
+              <!-- Alert OK-->
+              <div #alertOk class="alert alert-dark d-none" role="alert">
+                Te registrate con éxito! <a href="/Login" class="alert-link">Incia sesión</a>
+              </div>
+              <!-- Alert ERROR-->
+              <div #alertError class="alert alert-danger d-none" role="alert">
+                Lo sentimos! Ocurrio un error
+              </div>
+              <h3 class="display-4">Registrate</h3>
+              <p class="text-muted mb-4">Para poder jugar debes tener una cuenta.</p>
+              <form [formGroup]="registerForm" (ngSubmit)="onRegistrar()">
+                <div class="form-group mb-3">
+                  <input type="text" formControlName="email" placeholder="Correo electronico" class="form-control rounded-pill border-0 shadow-sm px-4"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Debe ingresar email</div>
+                    <div *ngIf="f.email.errors.email">Email debe ser valido</div>
                   </div>
-              </div><!-- End -->
-
+                </div>
+                <div class="form-group mb-3">
+                  <input type="password" formControlName="password" placeholder="Contraseña" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Debe ingresar contraseña</div>
+                    <div *ngIf="f.password.errors.minlength">Debe contener al menos 6 caracteres</div>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <input type="password" formControlName="confirmPassword" placeholder="Contraseña nuevamente" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                    [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                  <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">Debe ingresar contraseña nuevamente</div>
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Las contraseña deben coincidir</div>
+                  </div>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" checked formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
+                    [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                  <label for="acceptTerms" class="form-check-label">Acepto los Terminos y Condiciones</label>
+                  <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Debe aceptar los TyC</div>
+                </div>
+                <button type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Registrar</button>
+                <div class="text-center d-flex justify-content-between mt-4">
+                  <p>Tienes una cuenta? <a routerLink="/Login" class="font-italic text-muted">
+                      <u>Inicia sesión</u></a></p>
+                </div>
+              </form>
+            </div>
           </div>
-      </div><!-- End -->
+        </div><!-- End -->
+
+      </div>
+    </div><!-- End -->
 
   </div>
 </div>
