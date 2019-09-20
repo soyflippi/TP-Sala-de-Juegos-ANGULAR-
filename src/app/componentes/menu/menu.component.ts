@@ -11,11 +11,11 @@ export class MenuComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private autenticacionService: AutenticacionService) { }
+    public autenticacionService: AutenticacionService) { }
 
   ngOnInit() { }
 
-  onLogout(){
+  onLogout() {
     this.autenticacionService.logout();
   }
 

@@ -36,7 +36,7 @@ const MiRuteo = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'QuienSoy', component: QuienSoyComponent,
+    path: 'About', component: QuienSoyComponent,
     canActivate: [AuthGuardService]
   },
   {
