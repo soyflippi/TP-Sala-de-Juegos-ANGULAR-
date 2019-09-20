@@ -1,43 +1,128 @@
-.imagenDeQuienSoy{
-    width: 100%;
-   
-    }
-body {
-    font: 20px Montserrat, sans-serif;
-    line-height: 1.8;
-    color: #f5f6f7;
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+.badgescard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-p {font-size: 16px;}
-.margin {margin-bottom: 45px;}
-.bg-1 { 
-    background-color: #1abc9c; /* Green */
-    color: #ffffff;
+.content-box, .firstinfo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+.content-box {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  height: 600px;
+  min-height: 100%;
+  background: #e9ecef;
+  font-size: 16px;
+  overflow: hidden;
 }
-.bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
+
+*, *:before, *:after {
+  box-sizing: border-box;
 }
-.bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
+
+.content {
+  position: relative;
+  animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
 }
-.bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
+
+.card {
+  width: 750px;
+  min-height: 100px;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+.card:after {
+  content: '';
+  display: block;
+  width: 190px;
+  height: 300px;
+  background: cadetblue;
+  position: absolute;
+  animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
 }
-.navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
+
+.badgescard {
+  padding: 10px 20px;
+  border-radius: 3px;
+  background-color: white;
+  width: 750px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 25px;
+  z-index: -1;
+  left: 10px;
+  bottom: 10px;
+  animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s forwards;
 }
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
+.badgescard span {
+  font-size: 1.6em;
+  margin: 0px 6px;
+  opacity: 0.6;
+}
+
+.firstinfo {
+  flex-direction: row;
+  z-index: 2;
+  position: relative;
+}
+.firstinfo img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+.firstinfo .profileinfo {
+  padding: 0px 20px;
+}
+.firstinfo .profileinfo h1 {
+  font-size: 1.8em;
+}
+.firstinfo .profileinfo h3 {
+  font-size: 1.2em;
+  color: #009688;
+  font-style: italic;
+}
+.firstinfo .profileinfo p.bio {
+  padding: 10px 0px;
+  color: #5A5A5A;
+  line-height: 1.2;
+  font-style: initial;
+}
+
+@keyframes animatop {
+  0% {
+    opacity: 0;
+    bottom: -500px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@keyframes animainfos {
+  0% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: -42px;
+  }
+}
+@keyframes rotatemagic {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+    top: -24px;
+    left: -253px;
+  }
+  100% {
+    transform: rotate(-30deg);
+    top: -24px;
+    left: -78px;
+  }
 }

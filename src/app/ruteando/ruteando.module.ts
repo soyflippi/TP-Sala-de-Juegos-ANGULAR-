@@ -30,13 +30,10 @@ const MiRuteo = [
   { path: '', component: PrincipalComponent, data: { animation: 'Home' } },
   { path: 'Login', component: LoginComponent, data: { animation: 'About' } },
   { path: 'Registro', component: RegistroComponent, data: { animation: 'Contact' } },
+  { path: 'About', component: QuienSoyComponent, data: { animation: 'Contact' } },
   // Rutas protegias, debe estar logeado
   {
     path: 'Mapa', component: MapaDeGoogleComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'About', component: QuienSoyComponent,
     canActivate: [AuthGuardService]
   },
   {
