@@ -1,1 +1,23 @@
-<p>flippisay works!</p>
+<app-banner titulo="FlippiSay" subtitulo="Memoriza la secuencia de colores y repitela hasta donde te acuerdes. El objetivo de este juego es hacer clic sobre las colores que el juego resalta, en el mismo orden. Inicialmente, la secuencia de colores tiene la longitud 1. Cada vez que consigues reproducirla correctamente, su longitud aumenta por 1. Si haces un error tu puntuación vuelve a cero (pero el récord se queda)."></app-banner>
+
+<div class="contenedor">
+    <div [ngClass]="{'game-on': start$ | async}">
+        <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm play">Comenzar</button>
+        <div class="game">
+            <div class="turn">Nivel {{(turn$ | async)?.level || 1}}</div>
+            <div class="board">
+                <div class="pads">
+                    <div class="pad-row">
+                        <button class="pad pad-0" data-pad="0" [ngClass]="{active: 0 === (activePad$ | async)}"></button>
+                        <button class="pad pad-1" data-pad="1" [ngClass]="{active: 1 === (activePad$ | async)}"></button>
+                    </div>
+                    <div class="pad-row">
+                        <button class="pad pad-2" data-pad="2" [ngClass]="{active: 2 === (activePad$ | async)}"></button>
+                        <button class="pad pad-3" data-pad="3" [ngClass]="{active: 3 === (activePad$ | async)}"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="message"><span>{{message$ | async}}</span></div>
+        </div>
+    </div>
+</div>

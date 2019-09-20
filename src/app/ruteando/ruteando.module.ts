@@ -23,6 +23,7 @@ import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-goo
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { AuthGuardService } from '../guards/auth-guard.service';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
+import { FlippisayComponent } from '../componentes/flippisay/flippisay.component';
 
 
 // declaro donde quiero que se dirija
@@ -59,7 +60,7 @@ const MiRuteo = [
     canActivate: [AuthGuardService],
     children:
       [{ path: '', component: MenuCardComponent },
-      { path: 'Flippisay', component: AdivinaElNumeroComponent },
+      { path: 'Flippisay', component: FlippisayComponent },
       { path: 'Anagrama', component: AdivinaElNumeroComponent },
       { path: 'PiedraPapelTijera', component: AdivinaElNumeroComponent },
       { path: 'Agilidad', component: AdivinaElNumeroComponent },
