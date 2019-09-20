@@ -1,0 +1,15 @@
+<app-banner titulo="TaTeTi" subtitulo="Cuando un jugador logra ubicar a tres fichas propias en una misma línea, sea vertical, horizontal o en diagonal, gana la partida."></app-banner>
+<div class="contenedor">
+    <h3 *ngIf="!gameOver">Turno: {{ currentPlayer.name }}</h3>
+    <h3 *ngIf="gameOver && lastWinner == PLAYER_HUMAN">Has ganado!</h3>
+    <h3 *ngIf="gameOver && lastWinner == PLAYER_COMPUTER">Has perdido!</h3>
+    <h3 *ngIf="gameOver && lastWinner == DRAW">Empate!</h3>
+    <div id="board" [class.locked]="boardLocked || gameOver">
+        <div *ngFor="let square of board" class="square" [class.checked]="square.value != ''" [class.winner]="square.winner && lastWinner == PLAYER_HUMAN"
+            [class.looser]="square.winner && lastWinner == PLAYER_COMPUTER" (click)="square_click(this.square)">
+            {{ square.value }}
+        </div>
+    </div>
+    <h3><button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" *ngIf="gameOver" (click)="newGame()">Jugar
+        de nuevo</button></h3>
+</div>

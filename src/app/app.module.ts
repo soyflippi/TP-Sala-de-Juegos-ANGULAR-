@@ -64,6 +64,8 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { FlippisayComponent } from './componentes/flippisay/flippisay.component';
 import { ZocaloComponent } from './componentes/zocalo/zocalo.component';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAtx07osKfc7CxFWNSRqdlOiFWDS7lLouE",
@@ -103,7 +105,9 @@ const firebaseConfig = {
     BannerComponent,
     ContadorComponent,
     FlippisayComponent,
-    ZocaloComponent
+    ZocaloComponent,
+    PiedraPapelTijeraComponent,
+    TatetiComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/lista
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { AuthGuardService } from '../guards/auth-guard.service';
+import { TatetiComponent } from '../componentes/tateti/tateti.component';
 
 
 // declaro donde quiero que se dirija
@@ -63,7 +64,7 @@ const MiRuteo = [
       { path: 'PiedraPapelTijera', component: AdivinaElNumeroComponent },
       { path: 'Agilidad', component: AdivinaElNumeroComponent },
       { path: 'Adivina', component: AdivinaElNumeroComponent },
-      { path: 'Tateti', component: AdivinaElNumeroComponent },
+      { path: 'Tateti', component: TatetiComponent },
 
       { path: 'AdivinaMasListado', component: AdivinaMasListadoComponent },
       { path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent }]
