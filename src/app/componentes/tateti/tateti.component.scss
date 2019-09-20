@@ -7,6 +7,15 @@
         button {
             margin-top: 45px;        }
     }
+    h4 {
+        position: absolute;
+        &:first-of-type{
+            margin-top: 410px;
+        }
+        &:last-of-type {
+            margin-top: 460px;
+        }
+    }
     background-color: #e9ecef;
     height: 500px;
     justify-content: center;

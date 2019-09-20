@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TatetiComponent implements OnInit {
 
-  PLAYER_COMPUTER = { name: 'Computadora', symbol: 'O' };
+  PLAYER_COMPUTER = { name: 'CPU', symbol: 'O' };
   PLAYER_HUMAN = { name: 'Vos', symbol: 'X' };
   DRAW = { name: 'Draw' };
+
+  scoreHuman = 0;
+  scoreComputer = 0;
 
   board: any[];
   currentPlayer = this.PLAYER_HUMAN;
@@ -71,6 +74,8 @@ export class TatetiComponent implements OnInit {
 
     if (winner !== this.DRAW)
       this.currentPlayer = winner;
+
+      this.addScore(winner);
   }
 
   get winningIndexes(): any[] {
@@ -122,5 +127,14 @@ export class TatetiComponent implements OnInit {
 
   getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  addScore(winner){
+    if(winner === this.PLAYER_COMPUTER){
+      this.scoreComputer++;
+    }
+    if(winner === this.PLAYER_HUMAN){
+      this.scoreHuman++;
+    }    
   }
 }
