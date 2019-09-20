@@ -26,6 +26,11 @@ export class AutenticacionService {
     return usuario !== null;
   }
 
+  get Usuario(): User {
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    return usuario;
+  }
+
   async login(email: string, password: string) {
     var result = await this.afAuth.auth.signInWithEmailAndPassword(email, password)
     this.router.navigate(['/Juegos']);

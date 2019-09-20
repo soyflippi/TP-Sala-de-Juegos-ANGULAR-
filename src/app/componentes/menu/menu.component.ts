@@ -1,3 +1,4 @@
+import { AutenticacionService } from './../../servicios/autenticacion.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -9,9 +10,13 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private autenticacionService: AutenticacionService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  onLogout(){
+    this.autenticacionService.logout();
   }
 
   Juego(tipo: string) {

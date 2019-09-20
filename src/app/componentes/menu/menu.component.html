@@ -3,9 +3,9 @@
     <button (click)="Juego('Adivina')">Adivina</button>
     <button (click)="Juego('Agilidad')">Agilidad</button>
     <button (click)="Juego('AdivinaMasListado')">Adivina+listado</button>
-    <button (click)="Juego('AgilidadaMasListado')">Agilidad+listado</button>  
+    <button (click)="Juego('AgilidadaMasListado')">Agilidad+listado</button>
     <button routerLink="/error">Error</button>
-  
+
 </div-->
 
 <!--nav class="navbar navbar-inverse">
@@ -21,8 +21,8 @@
         <li><a  (click)="Juego('AgilidadaMasListado')">Agilidad+listado</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mis Datos</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+          <li><a routerLink="/Juegos"><span class="glyphicon glyphicon-user"></span> Mis Datos</a></li>
+          <li><a routerLink="/Juegos"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
         </ul>
     </div>
   </nav-->
@@ -31,7 +31,7 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
-                                  
+
           </button>
           <a class="navbar-brand" routerLink="/Principal">Inicio</a>
         </div>
@@ -44,7 +44,7 @@
                 <li><a  (click)="Juego('AgilidadaMasListado')">Agilidad+listado</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mis Datos</a></li>
+                  <li><a routerLink="/Juegos"><span class="glyphicon glyphicon-user"></span> Mis Datos</a></li>
                   <li><a href="/Login"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
                 </ul>
         </div>
@@ -55,22 +55,27 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">
-              Add some information about the album below, the author, or any other
-              background context. Make it a few sentences long so folks can pick
-              up some informative tidbits. Then, link them off to some social
-              networking sites or contact information.
-            </p>
+            <h5 class="text-white">Juegos</h5>
+            <h5 class="text-white">Resultados</h5>
+            <h5 class="text-white">Configuración</h5>
+            <h5 class="text-white">Jugadores</h5>
           </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Contact</h4>
+          <!-- No loguedo-->
+          <div *ngIf="!autenticacionService.isLoggedIn" class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Invitado</h4>
             <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Follow on Twitter</a></li>
-              <li><a href="#" class="text-white">Like on Facebook</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
+              <li><a routerLink="/Login" class="text-muted">Iniciar sesión</a></li>
+              <li><a routerLink="/Registro" class="text-muted">Registrate</a></li>
             </ul>
           </div>
+        <!-- Logueado-->
+          <div *ngIf="autenticacionService.isLoggedIn" class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">{{autenticacionService.Usuario.email}}</h4>
+              <ul class="list-unstyled">
+                <li><a routerLink="/Juegos" class="text-white">Mi perfil</a></li>
+                <li><a (click)="onLogout()" class="text-white">Cerrar sesion</a></li>
+              </ul>
+            </div>
         </div>
       </div>
     </div>
