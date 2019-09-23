@@ -1,3 +1,22 @@
-<p>
-  anagrama works!
-</p>
+<app-banner titulo="Anagrama" subtitulo="Consiste en reordenar las letras de una palabra para formar otra palabra."></app-banner>
+
+<div class="contenedor">
+  <h4>Correctas:</h4>
+  <div id="countScore"><span>{{score}}</span></div>
+  <div id="canvas">
+    <div id="words">
+      <div class="letter fadeIn" *ngFor="let letter of letters; let i = index" [ngClass]="{letterVisible:isLetterVisible(),letterHidden:isLetterHiding(),letterCorrect:isCorrectLetter()}">{{letter}}</div>
+    </div>
+  </div>
+  <form id="control">
+    <h4>Tiempo: {{seconds}}</h4>
+    <div>
+      <input type="text" name="answer" [(ngModel)]="answer" focus="answer.length === 0" placeholder="Ingrese su suposición"
+        autofocus="autofocus">
+      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" type="submit" (click)="validateWord()">Enviar</button>
+    </div>
+    <div>
+      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" (click)="nextWord()">Proxima</button>
+    </div>
+  </form>
+</div>

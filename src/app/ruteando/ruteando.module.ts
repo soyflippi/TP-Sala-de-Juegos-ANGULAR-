@@ -24,6 +24,8 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 import { AuthGuardService } from '../guards/auth-guard.service';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { FlippisayComponent } from '../componentes/flippisay/flippisay.component';
+import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
+import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 
 
 // declaro donde quiero que se dirija
@@ -61,8 +63,8 @@ const MiRuteo = [
     children:
       [{ path: '', component: MenuCardComponent },
       { path: 'Flippisay', component: FlippisayComponent },
-      { path: 'Anagrama', component: AdivinaElNumeroComponent },
-      { path: 'PiedraPapelTijera', component: AdivinaElNumeroComponent },
+      { path: 'Anagrama', component: AnagramaComponent },
+      { path: 'PiedraPapelTijera', component: PiedraPapelTijeraComponent },
       { path: 'Agilidad', component: AdivinaElNumeroComponent },
       { path: 'Adivina', component: AdivinaElNumeroComponent },
       { path: 'Tateti', component: TatetiComponent },
