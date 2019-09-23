@@ -1,0 +1,56 @@
+.contenedor {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #e9ecef;
+}
+p {
+    font-family: Lato;
+  }
+  
+  .content{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2em;
+  }
+  .flex-container{
+    display:flex;
+    width:100%;
+  }
+  
+  .flex-center{
+    align-items: center;
+    justify-content: center;
+  }
+  /* mat-card-content{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+  } */
+  
+  .content1{
+    
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .score{
+    margin-top:.5em;
+    margin-left:2em;
+    font-size:1.5em
+  }
+  
+  .content2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .fa{
+    cursor:pointer;
+    font-size:5em;
+  }
+  
+  .selectedWeapon{
+    color: background;
+  }

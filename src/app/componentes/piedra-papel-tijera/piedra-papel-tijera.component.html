@@ -1,0 +1,64 @@
+<app-banner titulo="Piedra Papel Tijera" subtitulo="El objetivo es vencer al oponente seleccionando el arma que gana, según las siguientes reglas:
+La piedra aplasta la tijera. (Gana la piedra.)
+La tijera corta el papel. (Gana la tijera.)
+El papel envuelve la piedra. (Gana el papel.)
+En caso de empate (Empate)"></app-banner>
+
+<div class="contenedor">
+    <!-- Juego -->
+    <div class="content">
+        <div class="card">
+            <div class="card-body">
+                <div class="content1">
+                    <h2> VOS</h2>
+                    <button class="score btn btn-secondary">{{ scores[0] }}</button>
+                </div>
+                <h3> Elige tu arma: </h3>
+                <div class="content2">
+                    <i (click)="pick(0)" [ngClass]="{'selectedWeapon':(playerSelected === 0)}" class="fa fa-hand-rock-o"></i>
+                    <i (click)="pick(1)" [ngClass]="{'selectedWeapon':(playerSelected === 1)}" class="fa fa-hand-paper-o"></i>
+                    <i (click)="pick(2)" [ngClass]="{'selectedWeapon':(playerSelected === 2)}" class="fa fa-hand-scissors-o"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="content1">
+                    <h2> CPU</h2>
+                    <button class="score btn btn-secondary">{{ scores[1] }}</button>
+                </div>
+                <br><br>
+
+                <div *ngIf="enemySelected !== -1" class="flex-container flex-center">
+                    <i *ngIf="enemySelected === 0" class="fa fa-hand-rock-o"></i>
+                    <i *ngIf="enemySelected === 1" class="fa fa-hand-paper-o"></i>
+                    <i *ngIf="enemySelected === 2" class="fa fa-hand-scissors-o"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Resultados -->
+    <div *ngIf="!loading && isResultShow" class="flex-container flex-center" style="flex-direction: column">
+        <div [ngSwitch]="theResult">
+            <ng-template [ngSwitchCase]="0">
+                <h1> Has ganado! </h1>
+            </ng-template>
+            <ng-template [ngSwitchCase]="1">
+                <h1> Perdiste </h1>
+            </ng-template>
+            <ng-template [ngSwitchCase]="2">
+                <h1>Empate! </h1>
+            </ng-template>
+            <ng-template ngSwitchDefault> </ng-template>
+        </div>
+        <p> Vuelve a elegir</p>
+        <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" (click)="reset()">
+            Reiniciar juego</button>
+    </div>
+
+    <div class="flex-container flex-center" *ngIf="loading">
+        <h1>3 2 1 ... YA!</h1>
+    </div>
+</div>

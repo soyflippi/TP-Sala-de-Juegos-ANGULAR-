@@ -9,13 +9,13 @@
     </div>
   </div>
   <form id="control">
-    <h4>Tiempo: {{seconds}}</h4>
+    <h4 class="text-center">Tiempo: {{seconds}}</h4>
     <div>
       <input type="text" name="answer" [(ngModel)]="answer" focus="answer.length === 0" placeholder="Ingrese su suposición"
         autofocus="autofocus">
-      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" type="submit" (click)="validateWord()">Enviar</button>
     </div>
     <div>
+      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" type="submit" (click)="validateWord()">Enviar</button>
       <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" (click)="nextWord()">Proxima</button>
     </div>
   </form>
