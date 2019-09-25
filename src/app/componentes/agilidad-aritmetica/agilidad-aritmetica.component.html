@@ -1,44 +1,27 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--app-menu></app-menu-->
-<!-- index.html -->
-<form name="juego">
-  <ul>
-    <li>
-      Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado"
-        type="text" class="form-control" style="width:50%" readonly />
+<app-banner titulo="Agilidad Aritmetica" subtitulo="Los juegos matemáticos son una manera divertida de practicar habilidades matemáticas como contar y estrategia numérica. Deberas hacer la cuenta lo mas rapido posible."></app-banner>
+<div class="contenedor">
+  <h4>Vidas:</h4>
+  <div id="countScore"><span>{{nuevoJuego.lifePlayer}}</span></div>
+  <div id="canvas">
+    <div id="words">
+      <h1 class="question text-center">{{nuevoJuego.question}}</h1>
+    </div>
+  </div>
+  <form id="control">
+    <h4 class="text-center">Puntaje: {{nuevoJuego.scorePlayer}}</h4>
+    <div>
+      <input type="text" class="form-control" id="answer" name="answer" placeholder="Respuesta" [(ngModel)]="nuevoJuego.userAnswer">
+    </div>
+    <div>
+      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" *ngIf="nuevoJuego.lifePlayer > 0" (click)="nuevoJuego.verificar()"
+        id="submitbutton">Responder</button>
+      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" *ngIf="nuevoJuego.lifePlayer > 0" (click)="nuevoJuego.skipQuestion()">Saltar</button>
+    </div>
 
-    </li>
-    <li>
-      Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado"
-        type="text" class="form-control" style="width:50%" readonly />
-
-    </li>
-    <li>
-      Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado"
-        type="text" class="form-control" style="width:50%" readonly />
-
-    </li>
-    <li>
-      Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado"
-        type="text" class="form-control" style="width:50%" />
-
-    </li>
-    <li>
-      <h2 [hidden]="ocultarVerificar"><button (click)="verificar()" class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm">Verificar
-          {{Tiempo}}
-        </button></h2>
-    </li>
-    <li>
-      <h2 [hidden]="!ocultarVerificar"><button (click)="NuevoJuego()" class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm">Nuevo</button></h2>
-    </li>
-    <li>
-      <h2>
-        <p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p>
-      </h2>
-
-      <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-      <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-    </li>
-  </ul>
-
-</form>
+    <div *ngIf="nuevoJuego.lifePlayer === 0">
+      <h1 class="question text-center">Perdiste!</h1>
+      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" (click)="nuevoJuego.reloadPage()">Jugar
+        de nuevo</button>
+    </div>
+  </form>
+</div>
