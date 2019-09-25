@@ -1,37 +1,29 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-menu></app-menu>
+<app-banner titulo="Adivina el número" subtitulo="Este juego es para adivinar el número aleatorio generado por computadora entre 1 y 100. Si ingresas un número que es más que el número real, recibirás una alerta que dice 'Te pasaste'. Si es más bajo que el actual, obtendrá 'Falta'."></app-banner>
+<div class="contenedor">
+  <form name="juego">
+    <label>Ingrese numero: </label>
+    <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="Ingrese numero" name="numeroIngresado" type="text"
+      class="form-control" style="width:50%" />
 
-<app-contador [segundos]="5"></app-contador>
+    <h2 [hidden]="ocultarVerificar">
+      <button *ngIf="nuevoJuego.numeroSecreto != 0" (click)="verificar()" class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm">
+        Verificar
+      </button>
+    </h2>
 
-<div style="text-align:center">
-  <h1>{{ nuevoJuego.nombre }}!</h1>
+    <h2>
+      <button *ngIf="nuevoJuego.numeroSecreto == 0" (click)="generarnumero()" class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm">
+        Jugar
+      </button>
+    </h2>
+
+    <h2>
+      <p>
+        Puntaje: {{puntaje}}
+      </p>
+    </h2>
+    <h3 *ngIf="nuevoJuego.gano && nuevoJuego.numeroSecreto == 0">Ganaste!</h3>
+    <h3 *ngIf="!nuevoJuego.gano && puntaje == 0">Perdiste!</h3>
+  </form>
 </div>
-<h2></h2>
-<form name="juego">
-  <label>ingrese numero: </label>
-  <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control"
-    style="width:50%" />
-  <h1>{{ nuevoJuego.numeroIngresado }}</h1>
-
-  <h2 [hidden]="ocultarVerificar">
-    <button *ngIf="nuevoJuego.numeroSecreto != 0" (click)="verificar()" class="btn btn-success btn-lg">
-      Verificar
-    </button>
-  </h2>
-
-  <h2>
-    <button *ngIf="nuevoJuego.numeroSecreto == 0" (click)="generarnumero()" class="btn btn-info btn-lg">
-      Nuevo número secreto
-    </button>
-  </h2>
-
-  <h2>
-    <p *ngIf="nuevoJuego.numeroSecreto != 0">
-      <i class="fa fa-spinner fa-spin"></i>Esperando que ingrese un número
-    </p>
-  </h2>
-
-  <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-  <h3 [hidden]="nuevoJuego.gano">usted aún no gano</h3>
-</form>
 <div id="snackbar">{{ Mensajes }}</div>

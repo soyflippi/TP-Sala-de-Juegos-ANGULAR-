@@ -14,28 +14,32 @@ export class AdivinaElNumeroComponent implements OnInit {
   Mensajes: string;
   contador: number;
   ocultarVerificar: boolean;
+  puntaje: number = 100;
 
   constructor() {
     this.nuevoJuego = new JuegoAdivina();
     console.info('numero Secreto:', this.nuevoJuego.numeroSecreto);
     this.ocultarVerificar = false;
   }
+
   generarnumero() {
     this.nuevoJuego.generarnumero();
     this.contador = 0;
+    this.puntaje = 100;
   }
+
   verificar() {
     this.contador++;
+    if (this.puntaje > 0) this.puntaje -= 10;
+    else this.nuevoJuego.numeroSecreto = 0;
     this.ocultarVerificar = true;
     console.info('numero Secreto:', this.nuevoJuego.gano);
     if (this.nuevoJuego.verificar()) {
-
       this.enviarJuego.emit(this.nuevoJuego);
       this.MostarMensaje('Sos un Genio!!!', true);
       this.nuevoJuego.numeroSecreto = 0;
 
     } else {
-
       let mensaje: string;
       switch (this.contador) {
         case 1:
@@ -62,8 +66,6 @@ export class AdivinaElNumeroComponent implements OnInit {
           break;
       }
       this.MostarMensaje('#' + this.contador + ' ' + mensaje + ' ayuda :' + this.nuevoJuego.retornarAyuda());
-
-
     }
     console.info('numero Secreto:', this.nuevoJuego.gano);
   }

@@ -65,7 +65,7 @@ const MiRuteo = [
       { path: 'Flippisay', component: FlippisayComponent },
       { path: 'Anagrama', component: AnagramaComponent },
       { path: 'PiedraPapelTijera', component: PiedraPapelTijeraComponent },
-      { path: 'Agilidad', component: AdivinaElNumeroComponent },
+      { path: 'Agilidad', component: AgilidadAritmeticaComponent },
       { path: 'Adivina', component: AdivinaElNumeroComponent },
       { path: 'Tateti', component: TatetiComponent },
 

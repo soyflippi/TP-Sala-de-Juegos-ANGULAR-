@@ -1,8 +1,6 @@
 
 form {
-    border: 10px solid #f1f1f1;
     padding: 10px;
-    background:gray;
 }
 
 input[type=text], input[type=password] {
@@ -115,4 +113,13 @@ span.psw {
 @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+}
+
+.contenedor{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #e9ecef;
 }
