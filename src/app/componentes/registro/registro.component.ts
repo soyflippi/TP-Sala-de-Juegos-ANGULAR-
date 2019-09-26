@@ -12,6 +12,7 @@ export class RegistroComponent implements OnInit {
   @ViewChild('alertOk', { static: true }) alertOk: ElementRef;
   @ViewChild('alertError', { static: true }) alertError: ElementRef;
 
+  isLoading: boolean = false;
   registerForm: FormGroup;
   submitted = false;
 
@@ -39,10 +40,11 @@ export class RegistroComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-
+    this.isLoading = true;
     // form valido
     this.autenticacionService.register(this.registerForm.value.email, this.registerForm.value.password)
       .then((result) => {
+        this.isLoading = false;
         // save user on firestore
         this.firebaseService.addUser(this.registerForm.value.email)
           .then(result => {
@@ -51,6 +53,7 @@ export class RegistroComponent implements OnInit {
         this.onReset();
         this.mostrarAlert(true);
       }).catch((error) => {
+        this.isLoading = false;
         this.onReset();
         this.mostrarAlert(false);
         console.info(error);

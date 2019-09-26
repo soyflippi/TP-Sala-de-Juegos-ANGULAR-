@@ -52,7 +52,12 @@
                   <label for="acceptTerms" class="form-check-label">Acepto los Terminos y Condiciones</label>
                   <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Debe aceptar los TyC</div>
                 </div>
-                <button type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Registrar</button>
+                <button *ngIf="!isLoading" type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Registrar</button>
+                <div *ngIf="isLoading" class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
                 <div class="text-center d-flex justify-content-between mt-4">
                   <p>Tienes una cuenta? <a routerLink="/Login" class="font-italic text-muted">
                       <u>Inicia sesión</u></a></p>
