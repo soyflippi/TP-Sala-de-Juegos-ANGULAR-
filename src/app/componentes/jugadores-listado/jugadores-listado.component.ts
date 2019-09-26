@@ -1,47 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { JugadoresService } from '../../servicios/jugadores.service';
+import { FirebaseService } from '../../servicios/firebase.service';
+
 @Component({
   selector: 'app-jugadores-listado',
   templateUrl: './jugadores-listado.component.html',
   styleUrls: ['./jugadores-listado.component.scss']
 })
 export class JugadoresListadoComponent implements OnInit {
+  isLoading: boolean = false;
+  listado: any
+  miJugadoresServicio: JugadoresService
 
-  listado:any
-  miJugadoresServicio:JugadoresService
-  
-    constructor(serviceJugadores:JugadoresService) {
-      this.miJugadoresServicio = serviceJugadores;
-      
-    }
-    
-
+  constructor(serviceJugadores: JugadoresService, public firebaseService: FirebaseService) {
+    this.miJugadoresServicio = serviceJugadores;
+  }
 
   ngOnInit() {
+    this.obtenerUsuarios();
   }
 
-
-  TraerTodos(){
-    //alert("totos");
-    this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
-  }
-  TraerGanadores(){
-    this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
-  }
-  TraerPerdedores(){
-    this.miJugadoresServicio.traertodos('jugadores/','perdedores').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
+  obtenerUsuarios() {
+    this.isLoading = true;
+    this.firebaseService.getUsers()
+      .then(result => {
+        this.isLoading = false;
+        console.log(result);
+        this.listado = result;
+      })
   }
 
 }

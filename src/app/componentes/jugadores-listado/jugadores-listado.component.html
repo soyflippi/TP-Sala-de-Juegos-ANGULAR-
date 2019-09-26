@@ -1,29 +1,22 @@
-<ul class="nav nav-pills nav-justified">
-  <li class="active"><a routerLink="/Principal">Ir a inicio</a></li>
-  <li><a (click)="TraerTodos()">Todos los jugadores</a></li>
-  <li><a (click)="TraerGanadores()">Los ganadores</a></li>
-  <li><a (click)="TraerPerdedores()">Los perdedores</a></li>
-</ul>
-
-
-
+<app-banner titulo="Jugadores" subtitulo="Listado de jugadores registrados."></app-banner>
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th>usuario</th>
-      <th>cuit</th>
-      <th>sexo</th>
-      <th>gano</th>
+      <th>Usuario</th>
+      <th>Correo</th>
+      <th>Fecha Alta</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let jugador of listado" >
-      <td>{{jugador.usuario}} </td>
-      <td>{{jugador.cuit}} </td> 
-      <td>{{jugador.sexo | sexo| uppercase}} </td> 
-      <td>{{jugador.gano}} </td> 
-      
+    <tr *ngFor="let jugador of listado">
+      <td>{{jugador.name}} </td>
+      <td>{{jugador.mail}} </td>
+      <td>{{jugador.createAt.seconds | date}} </td>
     </tr>
-   
   </tbody>
 </table>
+<div *ngIf="isLoading" class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

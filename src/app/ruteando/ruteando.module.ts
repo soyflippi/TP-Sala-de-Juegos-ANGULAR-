@@ -45,7 +45,7 @@ const MiRuteo = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'Listado', component: ListadoComponent,
+    path: 'Listado', component: ListadoDeResultadosComponent,
     canActivate: [AuthGuardService]
   },
   {

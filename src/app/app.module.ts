@@ -62,6 +62,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Firebase
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+
 import { FlippisayComponent } from './componentes/flippisay/flippisay.component';
 import { ZocaloComponent } from './componentes/zocalo/zocalo.component';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
@@ -72,7 +74,7 @@ const firebaseConfig = {
   authDomain: "flippi-games.firebaseapp.com",
   databaseURL: "https://flippi-games.firebaseio.com",
   projectId: "flippi-games",
-  storageBucket: "",
+  storageBucket: "flippi-games.appspot.com",
   messagingSenderId: "893385691138",
   appId: "1:893385691138:web:172144a49eb9b9f0d7971b"
 };
@@ -120,9 +122,10 @@ const firebaseConfig = {
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     }),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
-  providers: [JuegoServiceService, MiHttpService, PaisesService, ArchivosJugadoresService, JugadoresService],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }, JuegoServiceService, MiHttpService, PaisesService, ArchivosJugadoresService, JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

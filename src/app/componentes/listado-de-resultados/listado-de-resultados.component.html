@@ -1,25 +1,28 @@
-<!--div *ngFor="let juego of listado">
+<app-banner titulo="Resultados" subtitulo="Listado de todos los resultados."></app-banner>
+<table class="table table-condensed table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Fecha</th>
+      <th>Jugador</th>
+      <th>Juego</th>
+      <th>Puntaje / Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let juego of listado">
+      <td>{{juego.createdAt}} </td>
+      <td>{{juego.idUser}} </td>
+      <td>{{juego.game}} </td>
+      <td>{{juego.points}} -
+        <span *ngIf="juego.win">Gano </span>
+        <span *ngIf="!juego.win">Perdio</span>
+      </td>
+    </tr>
 
-<p> {{juego.nombre}} </p>
-<p> {{juego.jugador}} </p>
-
-</div-->
-
-<table class="table table-condensed">
-    <thead>
-      <tr>
-        <th>Juego</th>
-        <th>Jugador</th>
-        <th>Resultado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let juego of listado">
-        <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td> 
-        <td *ngIf="juego.gano">Gano </td>   
-        <td *ngIf="!juego.gano">Perdio</td>     
-      </tr>
-     
-    </tbody>
-  </table>
+  </tbody>
+</table>
+<div *ngIf="isLoading" class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
