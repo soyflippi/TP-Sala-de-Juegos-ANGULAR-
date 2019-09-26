@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
   selector: 'app-anagrama',
@@ -18,9 +19,16 @@ export class AnagramaComponent implements OnInit {
     "PAZ", "AMOR", "TIEMPO", "AMIGOS", "PERRO", "FLORES", "VIDRIO", "PASTO",
     "BOTE", "HUMANO", "AUTO", "CABLE", "MUJER", "TELEFONO"];
 
-  constructor() { }
+  constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit() {
+    this.initGame();
+  }
+
+  initGame() {
+    if (this.score > 0) {
+      this.loadResult();
+    }
     this.seconds = 60;
     this.score = 0;
     this.answer = '';
@@ -81,13 +89,19 @@ export class AnagramaComponent implements OnInit {
     }
   }
 
-
   contador() {
     setTimeout(() => {
       if (this.seconds > 0)
         this.seconds--;
       this.contador();
     }, 1000);
+  }
+
+  loadResult() {
+    this.firebaseService.addResult('Anagrama', this.score, true)
+      .then(result => {
+        console.log("insert result");
+      });
   }
 
 }

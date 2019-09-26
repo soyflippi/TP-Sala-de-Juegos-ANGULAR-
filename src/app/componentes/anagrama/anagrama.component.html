@@ -10,13 +10,15 @@
   </div>
   <form id="control">
     <h4 class="text-center">Tiempo: {{seconds}}</h4>
-    <div>
+    <div *ngIf="seconds > 0">
       <input type="text" name="answer" [(ngModel)]="answer" focus="answer.length === 0" placeholder="Ingrese su suposición"
         autofocus="autofocus">
     </div>
     <div>
-      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" type="submit" (click)="validateWord()">Enviar</button>
-      <button class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" (click)="nextWord()">Proxima</button>
+      <button *ngIf="seconds > 0" class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" type="submit" (click)="validateWord()">Enviar</button>
+      <button *ngIf="seconds > 0" class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" (click)="nextWord()">Proxima</button>
+      <button *ngIf="seconds === 0" class="btn btn-dark text-uppercase mb-2 rounded-pill shadow-sm" (click)="initGame()">Jugar
+        de nuevo</button>
     </div>
   </form>
 </div>
