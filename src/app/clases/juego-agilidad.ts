@@ -13,6 +13,7 @@ export class JuegoAgilidad extends Juego {
     lifePlayer: number = 0;
     scorePlayer: number = 0;
 
+
     constructor(nombre?: string, gano?: boolean, jugador?: string) {
         super("Agilidad Artimetica", gano, jugador);
     }
@@ -67,5 +68,6 @@ export class JuegoAgilidad extends Juego {
     range(num) {
         return new Array(num);
     }
+
 }
 
