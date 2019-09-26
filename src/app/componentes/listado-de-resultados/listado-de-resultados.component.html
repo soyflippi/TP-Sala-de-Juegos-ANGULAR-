@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let juego of listado">
+    <tr *ngFor="let juego of listado | sortBy:'createdAt':'desc'">
       <td>{{juego.createdAt}} </td>
       <td>{{juego.idUser}} </td>
       <td>{{juego.game}} </td>

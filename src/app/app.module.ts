@@ -68,6 +68,7 @@ import { FlippisayComponent } from './componentes/flippisay/flippisay.component'
 import { ZocaloComponent } from './componentes/zocalo/zocalo.component';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { OrderPipe } from './pipes/order.pipe';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAtx07osKfc7CxFWNSRqdlOiFWDS7lLouE",
@@ -109,7 +110,8 @@ const firebaseConfig = {
     FlippisayComponent,
     ZocaloComponent,
     PiedraPapelTijeraComponent,
-    TatetiComponent
+    TatetiComponent,
+    OrderPipe
   ],
   imports: [
     BrowserModule,
