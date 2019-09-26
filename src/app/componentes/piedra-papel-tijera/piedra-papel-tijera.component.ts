@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
   selector: 'app-piedra-papel-tijera',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PiedraPapelTijeraComponent implements OnInit {
 
-  constructor() { }
+  constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit() {
   }
@@ -47,11 +48,24 @@ export class PiedraPapelTijeraComponent implements OnInit {
   }
 
   reset(): void {
-    this.scores = [0, 0];
-    this.enemySelected = -1;
-    this.playerSelected = -1;
-    this.isResultShow = false;
+    this.loadResult().then(() => {
+      this.scores = [0, 0];
+      this.enemySelected = -1;
+      this.playerSelected = -1;
+      this.isResultShow = false;
+    });
   }
+
+  loadResult(): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.firebaseService.addResult('PiedraPapelTijera', this.scores[0], (this.scores[0] > this.scores[1]))
+        .then(result => {
+          console.log("insert result");
+          resolve();
+        })
+    })
+  }
+
   checkResult(): void {
     const playerPick = this.playerSelected;
     const enemyPick = this.enemySelected;

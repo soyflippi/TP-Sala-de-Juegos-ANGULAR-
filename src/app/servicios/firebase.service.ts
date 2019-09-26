@@ -27,7 +27,7 @@ export class FirebaseService {
   }
 
   addResult(game: any, points: any, win: any) {
-    const date = new Date('2015-02-10T10:12:50.5000z');
+    const date = new Date();
     const result = {
       createdAt: date.toLocaleDateString(),
       game: game,
