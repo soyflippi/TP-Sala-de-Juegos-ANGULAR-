@@ -15,6 +15,7 @@ import {
   generateSolution, LIGHT_DURATION, MESSAGE_DURATION, nextTurn, playSound,
   SOLUTION_DELAY, Turn
 } from './utils'
+import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
   selector: 'app-flippisay',
@@ -34,6 +35,10 @@ export class FlippisayComponent implements OnInit {
   // observable of the number of the currently active pad (be it via player clicks
   // or via sequence sample by the game.
   activePad$: Observable<number>
+
+  lastLevel: any;
+
+  constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit() {
     // listen for clicks on the PLAY button
@@ -78,7 +83,8 @@ export class FlippisayComponent implements OnInit {
           // to level 1
           tap(turn => {
             if (turn.previousWasLost) {
-              this.solution = generateSolution()
+              this.solution = generateSolution();
+              this.loadResult(); // Save data result
             }
           })
         )
@@ -134,6 +140,7 @@ export class FlippisayComponent implements OnInit {
       // this last click goes through.
       delay(0),
       switchMap(turn => {
+        this.lastLevel = turn.level;
         // merge the player sequence and the solution sequence to light the
         // pads and play the sounds
         return Observable.merge(
@@ -183,5 +190,12 @@ export class FlippisayComponent implements OnInit {
       // would happen...)
       share()
     )
+  }
+
+  loadResult() {
+    this.firebaseService.addResult('FlippiSay', this.lastLevel, false)
+      .then(result => {
+        console.log("insert result");
+      });
   }
 }

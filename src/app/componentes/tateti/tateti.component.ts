@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
   selector: 'app-tateti',
@@ -20,7 +21,7 @@ export class TatetiComponent implements OnInit {
   gameOver: boolean;
   boardLocked: boolean;
 
-  constructor() { }
+  constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit() {
     this.newGame();
@@ -75,7 +76,7 @@ export class TatetiComponent implements OnInit {
     if (winner !== this.DRAW)
       this.currentPlayer = winner;
 
-      this.addScore(winner);
+    this.addScore(winner);
   }
 
   get winningIndexes(): any[] {
@@ -129,12 +130,19 @@ export class TatetiComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  addScore(winner){
-    if(winner === this.PLAYER_COMPUTER){
+  addScore(winner) {
+    if (winner === this.PLAYER_COMPUTER) {
       this.scoreComputer++;
     }
-    if(winner === this.PLAYER_HUMAN){
+    if (winner === this.PLAYER_HUMAN) {
       this.scoreHuman++;
-    }    
+    }
+  }
+
+  loadResult() {
+    this.firebaseService.addResult('TaTeTi', this.scoreHuman, (this.lastWinner === this.PLAYER_HUMAN))
+      .then(result => {
+        console.log("insert result");
+      });
   }
 }
