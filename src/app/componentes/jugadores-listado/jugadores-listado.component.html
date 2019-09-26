@@ -1,6 +1,6 @@
 <app-banner titulo="Jugadores" subtitulo="Listado de jugadores registrados."></app-banner>
 <table class="table table-condensed">
-  <thead>
+  <thead class="thead-dark">
     <tr>
       <th>Usuario</th>
       <th>Correo</th>
@@ -8,10 +8,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let jugador of listado">
+    <tr *ngFor="let jugador of listado | sortBy:'createdAt':'desc'">
       <td>{{jugador.name}} </td>
       <td>{{jugador.mail}} </td>
-      <td>{{jugador.createAt.seconds | date}} </td>
+      <td>{{jugador.createdAt}} </td>
     </tr>
   </tbody>
 </table>

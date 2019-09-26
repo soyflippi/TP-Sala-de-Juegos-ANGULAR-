@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AutenticacionService } from '../../servicios/autenticacion.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
   selector: 'app-registro',
@@ -15,7 +16,7 @@ export class RegistroComponent implements OnInit {
   submitted = false;
 
   constructor(private autenticacionService: AutenticacionService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder, public firebaseService: FirebaseService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -42,6 +43,11 @@ export class RegistroComponent implements OnInit {
     // form valido
     this.autenticacionService.register(this.registerForm.value.email, this.registerForm.value.password)
       .then((result) => {
+        // save user on firestore
+        this.firebaseService.addUser(this.registerForm.value.email)
+          .then(result => {
+            console.log("insert user");
+          });
         this.onReset();
         this.mostrarAlert(true);
       }).catch((error) => {

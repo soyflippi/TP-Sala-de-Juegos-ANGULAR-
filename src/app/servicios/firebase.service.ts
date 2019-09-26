@@ -39,4 +39,16 @@ export class FirebaseService {
     return this.afs.collection('/results').doc(id).set(result);
   }
 
+  addUser(email: any) {
+    const date = new Date();
+    const user = {
+      createdAt: date.toLocaleDateString(),
+      id: Math.floor(Math.random() * Math.floor(6)),
+      name: email.split('@')[0],
+      mail: email
+    }
+    const id = this.afs.createId();
+    return this.afs.collection('/users').doc(id).set(user);
+  }
+
 }
