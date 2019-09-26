@@ -68,6 +68,10 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-10 col-xl-7 mx-auto">
+              <!-- Alert ERROR-->
+              <div #alertError class="alert alert-danger d-none" role="alert">
+                Lo sentimos! Ocurrio un error
+              </div>
               <h3 class="display-4">Inicia sesión</h3>
               <p class="text-muted mb-4">Para poder jugar debes inciar sesión.</p>
               <form>
@@ -82,7 +86,13 @@
                   <input id="customCheck1" type="checkbox" checked class="custom-control-input">
                   <label for="customCheck1" class="custom-control-label">Recordar contraseña</label>
                 </div>
-                <button type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm" (click)="onLogin(userEmail.value, userPassword.value)">Ingresar</button>
+                <button *ngIf="!isLoading" type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+                  (click)="onLogin(userEmail.value, userPassword.value)">Ingresar</button>
+                <div *ngIf="isLoading" class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
                 <div class="text-center d-flex justify-content-between mt-4">
                   <p>No tienes una cuenta? <a routerLink="/Registro" class="font-italic text-muted">
                       <u>Crear</u></a></p>
@@ -91,9 +101,7 @@
             </div>
           </div>
         </div><!-- End -->
-
       </div>
     </div><!-- End -->
-
   </div>
 </div>
