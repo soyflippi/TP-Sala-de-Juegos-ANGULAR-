@@ -38,28 +38,34 @@ const MiRuteo = [
   // Rutas protegias, debe estar logeado
   {
     path: 'Mapa', component: MapaDeGoogleComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    data: { animation: 'Contact' }
   },
   {
     path: 'Principal', component: PrincipalComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    data: { animation: 'Contact' }
   },
   {
     path: 'Listado', component: ListadoDeResultadosComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    data: { animation: 'Contact' }
   },
   {
     path: 'Paises', component: ListadoDePaisesComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    data: { animation: 'Contact' }
   },
   {
     path: 'Jugadores', component: JugadoresListadoComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    data: { animation: 'Contact' }
   },
   {
     path: 'Juegos',
     component: JuegosComponent,
     canActivate: [AuthGuardService],
+    data: { animation: 'Contact' },
     children:
       [{ path: '', component: MenuCardComponent },
       { path: 'Flippisay', component: FlippisayComponent },
