@@ -1,6 +1,6 @@
-# TP-Sala-de-Juegos-ANGULAR-
+# flippi-games
 Trabajo práctico obligatorio para la promoción directa.
 
 # URL
-https://soyflippi.github.io/TP-Sala-de-Juegos-ANGULAR-/
+https://flippijs.github.io/flippi-games/
 
